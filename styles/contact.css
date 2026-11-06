@@ -1,0 +1,51 @@
+/* Native checkbox/radio inputs cover exactly their own pill. */
+.contact .choice {
+  display: inline-flex;
+  position: relative;
+  border-radius: 999px;
+  isolation: isolate;
+}
+
+.contact .choice input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.contact .choice .pill {
+  pointer-events: none;
+  transition: background-color .15s, color .15s, border-color .15s;
+}
+
+.contact .choice:hover input:not(:checked) + .pill {
+  background: #e8e8e6;
+}
+
+.contact .choice input:checked + .pill {
+  background: #262626;
+  border-color: #262626;
+  color: #fff;
+}
+
+.contact .choice:hover input:checked + .pill {
+  background: #000;
+  border-color: #000;
+}
+
+.contact .choice input:focus-visible + .pill {
+  outline: 2px solid #262626;
+  outline-offset: 3px;
+}
+
+.contact .choice input:disabled {
+  cursor: not-allowed;
+}
+
+.contact .choice input:disabled + .pill {
+  opacity: .5;
+}
