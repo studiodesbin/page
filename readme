@@ -1,0 +1,74 @@
+# des.bin
+
+A studio site using the systemic architecture of
+[abhibny/portfolio](https://github.com/abhibny/portfolio) and the measured visual
+language of [Office Commun](https://officecommun.com/).
+
+## Run locally
+
+Requires Node.js 20.9 or newer.
+
+```powershell
+npm.cmd install
+npm.cmd run dev
+```
+
+Open http://localhost:3000. If that port is busy, run
+`npm.cmd run dev -- --port 3001`.
+
+```powershell
+npm.cmd run build
+```
+
+The production static site is generated in `out/`. Preview it with
+`npm.cmd run preview` (or `npm.cmd start`) at http://localhost:3000.
+
+## Structure
+
+- `pages/`: homepage, Services, About, Contact, static project routes and 404.
+- `components/`: shared shell, navigation, project cards and text rows.
+- `data/studio.js`: studio text, service descriptions and project collection.
+- `styles/globals.css`: measured typography, spacing, layout and responsive rules.
+- `public/images/`: original dummy SVG graphics. No runtime image requests.
+- `scripts/generate-placeholders.mjs`: regenerate graphics with `npm.cmd run assets`.
+- `docs/reference.md`: measured values and architecture provenance.
+
+All projects, descriptions, pricing choices and contact details are illustrative.
+The contact form is connected to the configured Formspree endpoint. Booking links lead to the Contact page until a
+real calendar URL is supplied.
+
+To add real projects, edit `data/studio.js` and replace the local cover,
+hero, mark, detail and web SVGs for each slug. Project pages, homepage cards,
+service examples and next-project navigation read from the same collection.
+
+For GitHub Pages under a repository subpath, set `NEXT_PUBLIC_BASE_PATH` before
+building, for example `$env:NEXT_PUBLIC_BASE_PATH='/desbin'`. Internal links and
+local asset paths respect that value. Leave it unset for a root domain.
+
+Source repository: https://github.com/abhibny/desbin.
+Website hosting has not been configured.
+
+## Email enquiries
+
+The form is configured with `https://formspree.io/f/xeaadyye` in
+`data/studio.js`. It works with the existing React AJAX submission handler and
+static export; no extra Formspree SDK or application server is required.
+
+Set and verify the recipient inbox in your Formspree dashboard. Optionally copy
+`.env.example` to `.env.local` to override `NEXT_PUBLIC_FORMSPREE_ENDPOINT` or set
+`NEXT_PUBLIC_CONTACT_EMAIL` to the real address to display. Restart development
+after changing environment values, or rebuild and redeploy the static site.
+
+These public values are embedded at build time. No inbox password or private
+API key belongs in the site. Formspree controls the recipient inbox; changing
+the displayed email does not change where enquiries are delivered.
+
+Submissions contain name, email (for replies), selected services, budget and
+message. The form shows success only after Formspree accepts the request,
+prevents duplicate submissions while sending, and retains entries on failure.
+A hidden honeypot field is included. Enable additional spam protection and
+allowed-domain restrictions in Formspree as appropriate for the deployed site.
+
+To verify delivery, send a clearly labelled test enquiry from the configured
+site and check both Formspree's submissions dashboard and the recipient inbox.
+A successful HTTP response confirms acceptance, not final inbox delivery.
