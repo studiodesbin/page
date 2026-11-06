@@ -46,7 +46,9 @@ building, for example `$env:NEXT_PUBLIC_BASE_PATH='/desbin'`. Internal links and
 local asset paths respect that value. Leave it unset for a root domain.
 
 Source repository: https://github.com/abhibny/desbin.
-Website hosting has not been configured.
+GitHub Pages deployment runs automatically on pushes to `main` through
+`.github/workflows/deploy.yml`. The build uses the Pages base path so links,
+fonts and illustrations work under `/desbin/`.
 
 ## Email enquiries
 
