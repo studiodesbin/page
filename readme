@@ -50,6 +50,15 @@ GitHub Pages deployment runs automatically on pushes to `main` through
 `.github/workflows/deploy.yml`. The build uses the Pages base path so links,
 fonts and illustrations work under `/page/`.
 
+## Link preview image
+
+Shared links use `public/social-preview.jpg`, a 1200 x 630 homepage composition.
+Regenerate it with `npm.cmd run social-preview`. The shared page shell includes
+Open Graph and large-image card tags in the exported HTML, with absolute HTTPS
+image and page URLs. `NEXT_PUBLIC_SITE_URL` can override the production URL if
+the domain changes. Messaging apps may cache an existing preview; old messages
+may retain their previous appearance even after deployment.
+
 ## Email enquiries
 
 The form is configured with `https://formspree.io/f/xeaadyye` in

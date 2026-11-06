@@ -7,11 +7,15 @@
     "build": "next build",
     "start": "node scripts/serve.mjs",
     "preview": "node scripts/serve.mjs",
-    "assets": "node scripts/generate-placeholders.mjs"
+    "assets": "node scripts/generate-placeholders.mjs",
+    "social-preview": "node scripts/generate-social-preview.mjs"
   },
   "dependencies": {
     "next": "16.4.5",
     "react": "19.3.1",
     "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "sharp": "0.35.5"
   }
 }
