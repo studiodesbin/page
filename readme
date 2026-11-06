@@ -42,13 +42,13 @@ hero, mark, detail and web SVGs for each slug. Project pages, homepage cards,
 service examples and next-project navigation read from the same collection.
 
 For GitHub Pages under a repository subpath, set `NEXT_PUBLIC_BASE_PATH` before
-building, for example `$env:NEXT_PUBLIC_BASE_PATH='/desbin'`. Internal links and
+building, for example `$env:NEXT_PUBLIC_BASE_PATH='/webpage'`. Internal links and
 local asset paths respect that value. Leave it unset for a root domain.
 
-Source repository: https://github.com/abhibny/desbin.
+Source repository: https://github.com/studiodesbin/webpage.
 GitHub Pages deployment runs automatically on pushes to `main` through
 `.github/workflows/deploy.yml`. The build uses the Pages base path so links,
-fonts and illustrations work under `/desbin/`.
+fonts and illustrations work under `/webpage/`.
 
 ## Email enquiries
 
